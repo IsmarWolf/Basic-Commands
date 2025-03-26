@@ -82,7 +82,35 @@
                                 <p>enviar uma mensagem de erro utilizando uma variavel criado.text content e escreve</p>
                                 <p> para saber se o email funciona utilizar if (!emailRegex.test(email))                                </p>
                                 <p>for the two if above, use event.preventDefault();</p>
-                            </div>
+                                document.addEventListener("DOMContentLoaded", function () {
+   <p> // Aplica máscara de telefone
+    $("#telefone").inputmask("(99) 99999-9999");
+
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        let nome = document.getElementById("nome").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let telefone = document.getElementById("telefone").value.trim();
+        let mensagem = document.getElementById("mensagem").value.trim();
+        let erroMsg = document.getElementById("mensagemErro");
+
+        // Expressão regular para validar email
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (nome === "" || email === "" || telefone === "" || mensagem === "") {
+            erroMsg.textContent = "Todos os campos são obrigatórios!";
+            event.preventDefault();
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            erroMsg.textContent = "Por favor, insira um e-mail válido!";
+            event.preventDefault();
+            return;
+        }
+
+        erroMsg.textContent = "";
+    });
+};    <p>                   </div>
                     </div>
                     <article class="content-box">
                         <h2>Useful commands PHP</h2>
