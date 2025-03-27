@@ -125,8 +125,8 @@
                     <article class="content-box">
                         <h2>Useful commands PHP</h2>
                                 <div class="writing-section">
-                               <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            
+<p>if ($_SERVER["REQUEST_METHOD"] == "POST") {<p>
     $nome = htmlspecialchars(trim($_POST["nome"]));
     $email = htmlspecialchars(trim($_POST["email"]));
     $telefone = htmlspecialchars(trim($_POST["telefone"]));
@@ -136,16 +136,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         exit;
     }
+    ec.ho "<><st.rong>Nome:</strong> $nome</p>";
 
-    echo "<h2>Dados Recebidos:</h2>";
-    echo "<p><strong>Nome:</strong> $nome</p>";
-    echo "<p><strong>E-mail:</strong> $email</p>";
-    echo "<p><strong>Telefone:</strong> $telefone</p>";
-    echo "<p><strong>Mensagem:</strong> $mensagem</p>";
 } else {
     echo "<p style='color:red; text-align:center;'>Método de envio inválido!</p>";
 }
-?>
                                 </div>
                         </div>
     
