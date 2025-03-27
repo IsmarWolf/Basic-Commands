@@ -94,28 +94,21 @@
                                 <p>for the two if above, use event.preventDefault();</p>
                                 document.addEventListener("DOMContentLoaded", function () {
    <p> // Aplica máscara de telefone
-    $("#telefone").inputmask("(99) 99999-9999");
 
     document.getElementById("contactForm").addEventListener("submit", function (event) {
-        let nome = document.getElementById("nome").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let telefone = document.getElementById("telefone").value.trim();
-        let mensagem = document.getElementById("mensagem").value.trim();
-        let erroMsg = document.getElementById("mensagemErro");
-
-        // Expressão regular para validar email
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (nome === "" || email === "" || telefone === "" || mensagem === "") {
-            erroMsg.textContent = "Todos os campos são obrigatórios!";
-            event.preventDefault();
-            return;
+      <p>  let nome = document.getElementById("nome").value.trim();<p>
+       <p> let email = document.getElementById("email").value.trim();<p>
+       <p> let telefone = document.getElementById("telefone").value.trim();<p>
+       <p> let mensagem = document.getElementById("mensagem").value.trim();<p>
+      <p>  let erroMsg = document.getElementById("mensagemErro");<p>
+         depois da linha do email
+          return;
         }
 
-        if (!emailRegex.test(email)) {
-            erroMsg.textContent = "Por favor, insira um e-mail válido!";
-            event.preventDefault();
-            return;
+       <p> if (!emailRegex.test(email)) {<p>
+           <p> erroMsg.textContent = "Por favor, insira um e-mail válido!";<p>
+           <p> event.preventDefault();<p>
+        <p>    return;<p>
         }
 
         erroMsg.textContent = "";
@@ -127,10 +120,10 @@
                                 <div class="writing-section">
                             
 <p>if ($_SERVER["REQUEST_METHOD"] == "POST") {<p>
-    $nome = htmlspecialchars(trim($_POST["nome"]));
-    $email = htmlspecialchars(trim($_POST["email"]));
-    $telefone = htmlspecialchars(trim($_POST["telefone"]));
-    $mensagem = htmlspecialchars(trim($_POST["mensagem"]));
+  <p>  $nome = htmlspecialchars(trim($_POST["nome"]));<p>
+  <p>  $email = htmlspecialchars(trim($_POST["email"]));<p>
+ <p>   $telefone = htmlspecialchars(trim($_POST["telefone"]));<p>
+ <p>   $mensagem = htmlspecialchars(trim($_POST["mensagem"]));<p>
 
     // Expressão regular para validar e-mail
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
