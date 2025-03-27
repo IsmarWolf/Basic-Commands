@@ -125,12 +125,27 @@
                     <article class="content-box">
                         <h2>Useful commands PHP</h2>
                                 <div class="writing-section">
-                               <p>Abrir o php com <?php e fechar com ?></p>
-                                 <p>Para criar uma variavel, use     $nome = htmlspecialchars(trim($_POST["nome"]));                                </p>
-                                 <p>para validar email utilizar filter var</p>
-                                 <p>Para enviar a mensagem utilize o echo e vira html, exemplo:</p>
-                                 <p>echo h2 vira mensagem</p>
-                                 <p>echo "p <strong>Nome do campo</strong>$variavel antes do special chars</p>
+                               <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = htmlspecialchars(trim($_POST["nome"]));
+    $email = htmlspecialchars(trim($_POST["email"]));
+    $telefone = htmlspecialchars(trim($_POST["telefone"]));
+    $mensagem = htmlspecialchars(trim($_POST["mensagem"]));
+
+    // Expressão regular para validar e-mail
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        exit;
+    }
+
+    echo "<h2>Dados Recebidos:</h2>";
+    echo "<p><strong>Nome:</strong> $nome</p>";
+    echo "<p><strong>E-mail:</strong> $email</p>";
+    echo "<p><strong>Telefone:</strong> $telefone</p>";
+    echo "<p><strong>Mensagem:</strong> $mensagem</p>";
+} else {
+    echo "<p style='color:red; text-align:center;'>Método de envio inválido!</p>";
+}
+?>
                                 </div>
                         </div>
     
